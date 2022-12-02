@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+	background-color: #f4f4f4;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: -40px;
+  color: white;
+}
+
+button {
+	color: #6db5ca;
+}
