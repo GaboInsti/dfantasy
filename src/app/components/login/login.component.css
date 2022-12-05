@@ -1,0 +1,22 @@
+.div-effect{
+	background: rgba(238, 235, 235, 0.781);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.301);
+	backdrop-filter: blur(12.7px);
+}
+	  
+.bg-dfantasy{
+	background-color: beige;
+}
+
+button{
+	background-color: #6db5ca;
+}
+
+button:hover {
+	background-color: #4e8ea1;
+}
+
+button:disabled {
+	background-color: #b7d9e4;
+}
