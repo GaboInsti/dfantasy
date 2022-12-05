@@ -1,0 +1,114 @@
+<div class="p-2">
+  <!-- Inventario detalles header -->
+  <div class="row mx-0">
+    <div class="col-1">
+      <button class="btn btn-danger">Back</button>
+    </div>
+    <div class="col d-flex justify-content-center align-items-center">
+      <span>Inventario - Detalle Mobiliario</span>
+    </div>
+    <div class="col-1"></div>
+  </div>
+
+  <!-- Inventario detalles content -->
+  <div class="my-5 px-4 d-flex justify-content-center">
+    <div class="d-flex align-items-center ms-3 me-5">
+      <div class="img-container">
+        <img
+          class="img-fluid"
+          src="https://i.pinimg.com/originals/8e/3e/7b/8e3e7bed65aeff0d55e0250133dbbfd4.jpg"
+          alt="mobiliario-example"
+        />
+      </div>
+    </div>
+    <div class="me-3">
+      <div class="id-container d-flex align-items-center">
+        <label class="col-4 me-2">ID:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID"
+            aria-label="ID"
+            aria-describedby="id"
+          />
+        </div>
+      </div>
+      <div class="nombre-container d-flex align-items-center">
+        <label class="col-4 me-2">Nombre:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            aria-label="Nombre"
+            aria-describedby="nombre"
+          />
+        </div>
+      </div>
+      <div class="existencia-container d-flex align-items-center">
+        <label class="col-4 me-2">Existencia:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Existencia"
+            aria-label="Existencia"
+            aria-describedby="existencia"
+          />
+        </div>
+      </div>
+      <div class="precio-container d-flex align-items-center">
+        <label class="col-4 me-2">Precio unitario:</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Precio unitario"
+            aria-label="Precio unitario"
+            aria-describedby="precio-unitario"
+          />
+        </div>
+      </div>
+      <div class="categoria-container d-flex align-items-center">
+        <label class="col-4 me-2">Categoría:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Categoria" />
+          <button
+            type="button"
+            class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span class="visually-hidden">Categoria</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item">Categoria 1</a></li>
+            <li><a class="dropdown-item">Categoria 2</a></li>
+            <li><a class="dropdown-item">Categoria 3</a></li>
+            <li><a class="dropdown-item">Categoria 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="descripcion-container">
+        <label class="col-4 me-2">Descripción:</label>
+        <div class="input-group">
+          <textarea
+            class="form-control"
+            placeholder="Descripción del mobiliario"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="row mx-0 my-5 justify-content-center">
+    <div class="col-auto">
+      <button class="btn btn-success">Guardar</button>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-danger">Eliminar</button>
+    </div>
+  </div>
+</div>
