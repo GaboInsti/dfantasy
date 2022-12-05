@@ -1,0 +1,13 @@
+.consultar-pedidos-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.consultar-pedidos-table-container {
+    overflow: auto;
+}
+
+th, td {
+    vertical-align: middle;
+}

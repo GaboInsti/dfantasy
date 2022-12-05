@@ -1,0 +1,13 @@
+.staff-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.staff-details-container {
+    overflow: auto;
+}
+
+th, td {
+    vertical-align: middle;
+}
