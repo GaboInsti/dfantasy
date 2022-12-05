@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 
 // Login component
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 
 // Admin components
 import { AdminComponent } from './components/admin/admin.component';
@@ -23,6 +27,10 @@ import { InventoryDetailsComponent } from './components/admin/inventory/inventor
   declarations: [
     AppComponent,
     LoginComponent,
+    LandingPageComponent,
+    HeaderComponent,
+    CarouselComponent,
+    FooterComponent,
     AdminComponent,
     OrderHomeComponent,
     CheckOrdersComponent,
