@@ -11,11 +11,12 @@ import { OrderDetailsComponent } from './components/admin/orders/order-details/o
 import { CheckOrdersComponent } from './components/admin/orders/check-orders/check-orders.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './components/login/login.guard';
 
 const routes: Routes = [
-  { path: 'home', component: LandingPageComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'pedidos', component: AdminComponent, children: [
+  { path: 'home', component: LandingPageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'pedidos', component: AdminComponent, canActivate: [LoginGuard], children: [
     { path: '', component: OrderHomeComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
   ] },

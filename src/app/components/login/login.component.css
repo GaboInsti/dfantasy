@@ -12,3 +12,11 @@
 button{
 	background-color: #6db5ca;
 }
+
+button:hover {
+	background-color: #4e8ea1;
+}
+
+button:disabled {
+	background-color: #b7d9e4;
+}
