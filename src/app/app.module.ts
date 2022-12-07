@@ -22,6 +22,7 @@ import { CheckStaffComponent } from './components/admin/staff/check-staff/check-
 import { StaffDetailComponent } from './components/admin/staff/staff-detail/staff-detail.component';
 import { InventoryHomeComponent } from './components/admin/inventory/inventory-home/inventory-home.component';
 import { InventoryDetailsComponent } from './components/admin/inventory/inventory-details/inventory-details.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InventoryDetailsComponent } from './components/admin/inventory/inventor
     CheckStaffComponent,
     StaffDetailComponent,
     InventoryHomeComponent,
-    InventoryDetailsComponent
+    InventoryDetailsComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
