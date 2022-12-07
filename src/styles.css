@@ -15,6 +15,14 @@ footer {
   color: white;
 }
 
-button {
-	color: #6db5ca;
+button{
+	background-color: #6db5ca !important;
+}
+
+button:hover {
+	background-color: #4e8ea1 !important;
+}
+
+button:disabled {
+	background-color: #b7d9e4 !important;
 }
