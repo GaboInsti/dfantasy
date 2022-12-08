@@ -1,4 +1,4 @@
-<div class="container order-container py-2">
+<div *ngIf="mobiliarios" class="container order-container py-2">
   <form [formGroup]="orderForm" (ngSubmit)="onNewOrder()">
     <!-- Details -->
     <div class="row my-3">
@@ -37,11 +37,12 @@
                     class="form-select"
                     aria-label="Mobiliario"
                     formControlName="category"
+                    (change)="onChangeCategory()"
                   >
                     <option selected>Selecciona categoría</option>
                     <option
                       *ngFor="let category of categories; let i = index"
-                      [value]="i"
+                      [value]="category.name"
                     >
                       {{ category.name }}
                     </option>
@@ -52,24 +53,25 @@
                     class="form-select"
                     aria-label="Mobiliario"
                     formControlName="nameMobiliario"
+                    (change)="onCheckPrices()"
                   >
                     <option selected>Selecciona el mobiliario</option>
-                    <option value="1">Mesas</option>
-                    <option value="2">Sillas</option>
-                    <option value="3">Manteles</option>
-                    <option value="4">Platos</option>
-                    <option value="5">Cubiertos</option>
-                    <option value="6">Copas</option>
-                    <option value="7">Brincolines</option>
-                    <option value="8">Coolers</option>
-                    <option value="9">Centros de mesa</option>
-                    <option value="10">Carpas</option>
+                    <option
+                      *ngFor="
+                        let mobiliario of mobiliarios
+                          | filterCategory : categoriesSelected[i] || '';
+                        let i = index
+                      "
+                      [value]="mobiliario.name"
+                    >
+                      {{ mobiliario.name }}
+                    </option>
                   </select>
                 </td>
                 <td>
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control no-click"
                     aria-label="Precio unitario"
                     aria-describedby="precio-unitario"
                     formControlName="priceMobiliario"
@@ -299,14 +301,22 @@
               aria-describedby="fecha-nacimiento-consumidor"
               formControlName="customerBirthday"
             />
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Sexo"
-              aria-label="Sexo del consumidor"
-              aria-describedby="sexo-consumidor"
+            <select
+              class="form-select"
+              aria-label="Genero"
               formControlName="genre"
-            />
+            >
+              <option selected>Selecciona género</option>
+              <option value="Masculino">
+                Masculino
+              </option>
+              <option value="Femenino">
+                Femenino
+              </option>
+              <option value="No binario">
+                No binario
+              </option>
+            </select>
           </div>
         </div>
       </div>

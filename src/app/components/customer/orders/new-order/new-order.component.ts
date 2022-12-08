@@ -5,6 +5,10 @@ import { Subscription } from 'rxjs';
 import { MobiliarioService } from '../../../../shared/services/mobiliario.service';
 import { Mobiliario } from '../../../../shared/models/mobiliario.interface';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Order, MobiliarioOrder } from '../../../../shared/models/order.interface';
+
+import { v4 as uuidv4 } from 'uuid';
+import { OrdersService } from '../../../../shared/services/orders.service';
 
 @Component({
   selector: 'app-new-order',
@@ -14,18 +18,21 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NewOrderComponent implements OnInit, OnDestroy {
   mobile: boolean = false;
 
-  categories: Category[];
+  categories: Category[] = [];
   categorySub: Subscription;
 
-  mobiliarios: Mobiliario[];
+  mobiliarios: Mobiliario[] = [];
   mobiliarioSub: Subscription;
+
+  categoriesSelected: string[] = [];
 
   orderForm: FormGroup;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private formBuilder: FormBuilder,
-    private mobiliarioService: MobiliarioService
+    private mobiliarioService: MobiliarioService,
+    private ordersService: OrdersService
   ) {}
 
   ngOnInit(): void {
@@ -96,10 +103,67 @@ export class NewOrderComponent implements OnInit, OnDestroy {
     return (<FormArray>this.orderForm.get('mobiliarios')).controls;
   }
 
-  onChangeCategory() {}
-
   onNewOrder() {
-    console.log(this.orderForm.value);
+    if (this.orderForm.valid) {
+      const { mobiliarios, eventDescription, date, address, customer  } = this.orderForm.value;
+      const newOrder: Order = {
+        id: uuidv4(),
+        mobiliarios: this.onTransformMobiliarios(mobiliarios),
+        eventDescription,
+        damageDescription: '',
+        date: {...date, status: 'Por confirmar'},
+        address,
+        transportista: {id: '', name: ''},
+        administrador: {id: '', name: ''},
+        customer: {
+          ...customer,
+          id: uuidv4()
+        }
+      };
+      this.ordersService.newOrder(newOrder).subscribe();
+    }
+  }
+
+  private onTransformMobiliarios(mobiliarios: any) {
+    return mobiliarios.map(mobiliarioForm => {
+      const { category, nameMobiliario, quantityMobiliario } = mobiliarioForm;
+      const index = this.mobiliarios.findIndex(
+        mobiliario => {
+          return nameMobiliario.toLocaleLowerCase() === mobiliario.name.toLocaleLowerCase()
+        }
+      );
+      const { id, name, price } = this.mobiliarios[index];
+      const newMobiliario: MobiliarioOrder = {
+        id,
+        category,
+        name,
+        price,
+        quantity: quantityMobiliario
+      }
+      return newMobiliario;
+    });
+  }
+
+  onChangeCategory() {
+    const mobiliarios = this.orderForm.get('mobiliarios').value;
+    mobiliarios.forEach((mobiliario, index) => {
+      this.categoriesSelected[index] = mobiliario.category;
+    });
+  }
+
+  onCheckPrices() {
+    const mobiliarios = this.orderForm.get('mobiliarios').value;
+    const mobiliarioControls = this.mobiliariosControls;
+    let indexArray = [];
+    mobiliarios.forEach((mobiliarioForm) => {
+      const index = this.mobiliarios.findIndex(
+        mobiliario => mobiliario.name.toLocaleLowerCase() === mobiliarioForm.nameMobiliario.toLocaleLowerCase()
+      );
+      indexArray.push(index);
+    });
+    mobiliarioControls.forEach((control, index) => {
+      control.get('priceMobiliario').setValue(this.mobiliarios[indexArray[index]].price);
+    });
   }
 
   ngOnDestroy(): void {

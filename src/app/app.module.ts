@@ -29,6 +29,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { CustomerSearchComponent } from './components/customer/orders/customer-search/customer-search.component';
 import { FilterMobiliarioPipe } from './components/admin/inventory/inventory-home/pipes/filter-mobiliario.pipe';
 import { NewOrderComponent } from './components/customer/orders/new-order/new-order.component';
+import { FilterCategoryPipe } from './components/customer/orders/new-order/pipes/filter-category.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NewOrderComponent } from './components/customer/orders/new-order/new-or
     CatalogComponent,
     CustomerSearchComponent,
     FilterMobiliarioPipe,
-    NewOrderComponent
+    NewOrderComponent,
+    FilterCategoryPipe
   ],
   imports: [
     BrowserModule,
