@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    firebaseURL: 'https://login-app-dc8e2-default-rtdb.firebaseio.com/'
+    firebaseURL: 'https://d-fantasy-56832-default-rtdb.firebaseio.com/'
 }

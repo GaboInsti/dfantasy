@@ -43,6 +43,7 @@ const {
 } = APP_ROUTES;
 
 const routes: Routes = [
+  { path: '', redirectTo: home, pathMatch: 'full' },
   { path: home, component: LandingPageComponent },
   { path: login, component: LoginComponent },
   { path: catalog, component: CatalogComponent },
