@@ -4,10 +4,13 @@ import {
   CanActivate,
   RouterStateSnapshot,
   UrlTree,
+  Router
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { LoginService } from '../../shared/services/login.service';
-import { Router } from '@angular/router';
+import { APP_ROUTES } from '../../routes';
+
+const { login } = APP_ROUTES;
 
 @Injectable({
   providedIn: 'root',
@@ -26,10 +29,16 @@ export class LoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const validLogin = this.loginService.verifyLogged();
-    if (validLogin) {
-      return true;
-    }
-    return this.router.createUrlTree(['login']);
+    return this.loginService.user$.pipe(
+      take(1),
+      map(user => {
+        const isLogged = !!user;
+        if (isLogged) {
+          return true;
+        } else {
+          return this.router.createUrlTree([login]);
+        }
+      })
+    )
   }
 }

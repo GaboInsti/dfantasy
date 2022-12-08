@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
 
 // Login component
 import { LoginComponent } from './components/login/login.component';
@@ -23,6 +26,8 @@ import { StaffDetailComponent } from './components/admin/staff/staff-detail/staf
 import { InventoryHomeComponent } from './components/admin/inventory/inventory-home/inventory-home.component';
 import { InventoryDetailsComponent } from './components/admin/inventory/inventory-details/inventory-details.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
+import { CustomerSearchComponent } from './components/customer/orders/customer-search/customer-search.component';
+import { FilterMobiliarioPipe } from './components/admin/inventory/inventory-home/pipes/filter-mobiliario.pipe';
 
 @NgModule({
   declarations: [
@@ -41,12 +46,17 @@ import { CatalogComponent } from './components/catalog/catalog.component';
     StaffDetailComponent,
     InventoryHomeComponent,
     InventoryDetailsComponent,
-    CatalogComponent
+    CatalogComponent,
+    CustomerSearchComponent,
+    FilterMobiliarioPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

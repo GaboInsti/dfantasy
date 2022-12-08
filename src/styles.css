@@ -26,3 +26,7 @@ button:hover {
 button:disabled {
 	background-color: #b7d9e4 !important;
 }
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,331 +1,435 @@
-<div class="order-details-container p-2">
-  <!-- Header -->
-  <div class="row mx-0">
-    <button class="btn btn-danger col-auto">Back</button>
-  </div>
-
+<div class="container py-2">
   <!-- Details -->
-  <div class="my-3">
-    <label>Detalle pedido: Lista de inmobiliarios</label>
-    <table class="table" aria-labelledby="mobiliario">
-      <thead>
-        <tr>
-          <th scope="col">Mobiliario</th>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Precio unitario</th>
-          <th scope="col">Categoría</th>
-          <th scope="col">Cantidad</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <select class="form-select" aria-label="Mobiliario">
-              <option selected>Selecciona el mobiliario</option>
-              <option value="1">Mesas</option>
-              <option value="2">Sillas</option>
-              <option value="3">Manteles</option>
-              <option value="4">Platos</option>
-              <option value="5">Cubiertos</option>
-              <option value="6">Copas</option>
-              <option value="7">Brincolines</option>
-              <option value="8">Coolers</option>
-              <option value="9">Centros de mesa</option>
-              <option value="10">Carpas</option>
-            </select>
-          </td>
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Mobiliario ID"
-              aria-describedby="mobiliario-id"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Nombre del mobiliario"
-              aria-describedby="nombre-mobiliario"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Precio unitario"
-              aria-describedby="precio-unitario"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Categoria"
-              aria-describedby="categoria-mobiliario"
-            />
-          </td>
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Cantidad"
-              aria-describedby="cantidad-mobiliario"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="form-floating">
-      <textarea
-        class="form-control"
-        placeholder="Descripción"
-        id="descripcionMobiliarioTextArea"
-      ></textarea>
-      <label for="descripcionMobiliarioTextArea">Descripción</label>
-    </div>
-    <div class="form-floating">
-      <textarea
-        class="form-control"
-        placeholder="Descripción de daños"
-        id="descripcionDanosMobiliarioTextArea"
-      ></textarea>
-      <label for="descripcionDanosMobiliarioTextArea"
-        >Descripción de daños</label
-      >
+  <div class="row my-3">
+    <div class="col">
+      <div class="row">
+        <label>Detalle pedido: Lista de mobiliarios</label>
+      </div>
+      <div class="row table-container">
+        <table class="table" aria-labelledby="mobiliario">
+          <thead>
+            <tr>
+              <th scope="col">Mobiliario</th>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <select class="form-select" aria-label="Mobiliario">
+                  <option selected>Selecciona el mobiliario</option>
+                  <option value="1">Mesas</option>
+                  <option value="2">Sillas</option>
+                  <option value="3">Manteles</option>
+                  <option value="4">Platos</option>
+                  <option value="5">Cubiertos</option>
+                  <option value="6">Copas</option>
+                  <option value="7">Brincolines</option>
+                  <option value="8">Coolers</option>
+                  <option value="9">Centros de mesa</option>
+                  <option value="10">Carpas</option>
+                </select>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Mobiliario ID"
+                  aria-describedby="mobiliario-id"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Nombre del mobiliario"
+                  aria-describedby="nombre-mobiliario"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Precio unitario"
+                  aria-describedby="precio-unitario"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Categoria"
+                  aria-describedby="categoria-mobiliario"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Cantidad"
+                  aria-describedby="cantidad-mobiliario"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Descripción"
+            id="descripcionMobiliarioTextArea"
+          ></textarea>
+          <label for="descripcionMobiliarioTextArea">Descripción</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Descripción de daños"
+            id="descripcionDanosMobiliarioTextArea"
+          ></textarea>
+          <label for="descripcionDanosMobiliarioTextArea"
+            >Descripción de daños</label
+          >
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Date -->
-  <div class="my-3">
-    <label>Fecha:</label>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="ID"
-        aria-label="Id"
-        aria-describedby="order-id"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Fecha de inicio"
-        aria-label="Fecha de inicio"
-        aria-describedby="fecha-inicio"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Fecha de recolección"
-        aria-label="Fecha de recoleccion"
-        aria-describedby="fecha-recoleccion"
-      />
-      <select class="form-select" aria-label="Estatus">
-        <option selected>Estatus</option>
-        <option value="1">Estatus 1</option>
-        <option value="2">Estatus 2</option>
-        <option value="3">Estatus 3</option>
-        <option value="4">Estatus 4</option>
-      </select>
+  <div class="row my-3">
+    <div class="col">
+      <div class="row">
+        <label>Fecha:</label>
+      </div>
+      <div class="row">
+        <div [ngClass]="{'input-group': !mobile}">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID"
+            aria-label="Id"
+            aria-describedby="order-id"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Fecha de inicio"
+            aria-label="Fecha de inicio"
+            aria-describedby="fecha-inicio"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Fecha de recolección"
+            aria-label="Fecha de recoleccion"
+            aria-describedby="fecha-recoleccion"
+          />
+          <select class="form-select" aria-label="Estatus">
+            <option selected>Estatus</option>
+            <option value="1">Estatus 1</option>
+            <option value="2">Estatus 2</option>
+            <option value="3">Estatus 3</option>
+            <option value="4">Estatus 4</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Direction -->
-  <div class="my-3">
-    <label>Dirección:</label>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Colonia"
-        aria-label="Colonia"
-      />
-      <button
-        type="button"
-        class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        <span class="visually-hidden">Colonia</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end">
-        <li><a class="dropdown-item">Colonia 1</a></li>
-        <li><a class="dropdown-item">Colonia 2</a></li>
-        <li><a class="dropdown-item">Colonia 3</a></li>
-      </ul>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Calle 1"
-        aria-label="Calle 1"
-        aria-describedby="calle-1"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Calle 2"
-        aria-label="Calle 2"
-        aria-describedby="calle-2"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="No. Interior"
-        aria-label="No. Interior"
-        aria-describedby="no-interior"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="No. Exterior"
-        aria-label="No. Exterior"
-        aria-describedby="no-exterior"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Código Postal"
-        aria-label="Codigo Postal"
-        aria-describedby="codigo-postal"
-      />
-    </div>
-    <div class="form-floating">
-      <textarea
-        class="form-control"
-        placeholder="Descripción"
-        id="descripcionTextArea"
-      ></textarea>
-      <label for="descripcionTextArea">Descripción</label>
+  <div class="row my-3">
+    <div class="col">
+      <div class="row">
+        <label>Dirección:</label>
+      </div>
+      <div class="row">
+        <div [ngClass]="{'input-group': !mobile}">
+          <div *ngIf="mobile;else InputMobileC" class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Colonia"
+              aria-label="Colonia"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">Colonia</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">Colonia 1</a></li>
+              <li><a class="dropdown-item">Colonia 2</a></li>
+              <li><a class="dropdown-item">Colonia 3</a></li>
+            </ul>
+          </div>
+          <ng-template #InputMobileC>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Colonia"
+              aria-label="Colonia"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">Colonia</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">Colonia 1</a></li>
+              <li><a class="dropdown-item">Colonia 2</a></li>
+              <li><a class="dropdown-item">Colonia 3</a></li>
+            </ul>
+          </ng-template>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Calle 1"
+            aria-label="Calle 1"
+            aria-describedby="calle-1"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Calle 2"
+            aria-label="Calle 2"
+            aria-describedby="calle-2"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="No. Interior"
+            aria-label="No. Interior"
+            aria-describedby="no-interior"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="No. Exterior"
+            aria-label="No. Exterior"
+            aria-describedby="no-exterior"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Código Postal"
+            aria-label="Codigo Postal"
+            aria-describedby="codigo-postal"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Descripción"
+            id="descripcionTextArea"
+          ></textarea>
+          <label for="descripcionTextArea">Descripción</label>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Takers -->
-  <div class="row mx-0 my-3 justify-content-around">
+  <div class="row my-3 justify-content-around">
     <!-- Transportista -->
-    <div class="col-4">
-      <label>Transportista</label>
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="ID"
-          aria-label="Transportista ID"
-          aria-describedby="transportista-id"
-        />
-        <button
-          type="button"
-          class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">ID Transportista</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item">ID 1</a></li>
-          <li><a class="dropdown-item">ID 2</a></li>
-          <li><a class="dropdown-item">ID 3</a></li>
-        </ul>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nombre"
-          aria-label="Nombre del transportista"
-          aria-describedby="nombre-transportista"
-        />
+    <div class="col-12 col-md-4">
+      <div class="row">
+        <label>Transportista</label>
+      </div>
+      <div class="row">
+        <div [ngClass]="{'input-group': !mobile}">
+          <div *ngIf="mobile; else InputMobileT" class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ID"
+              aria-label="Transportista ID"
+              aria-describedby="transportista-id"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">ID Transportista</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">ID 1</a></li>
+              <li><a class="dropdown-item">ID 2</a></li>
+              <li><a class="dropdown-item">ID 3</a></li>
+            </ul>
+          </div>
+          <ng-template #InputMobileT>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ID"
+              aria-label="Transportista ID"
+              aria-describedby="transportista-id"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">ID Transportista</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">ID 1</a></li>
+              <li><a class="dropdown-item">ID 2</a></li>
+              <li><a class="dropdown-item">ID 3</a></li>
+            </ul>
+          </ng-template>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            aria-label="Nombre del transportista"
+            aria-describedby="nombre-transportista"
+          />
+        </div>
       </div>
     </div>
 
     <!-- Administrador -->
-    <div class="col-4">
-      <label>Administrador</label>
-      <div class="input-group">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="ID"
-          aria-label="Administrador ID"
-          aria-describedby="administrador-id"
-        />
-        <button
-          type="button"
-          class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span class="visually-hidden">ID Administrador</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item">ID 1</a></li>
-          <li><a class="dropdown-item">ID 2</a></li>
-          <li><a class="dropdown-item">ID 3</a></li>
-        </ul>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nombre"
-          aria-label="Nombre del administrador"
-          aria-describedby="nombre-administrador"
-        />
+    <div class="col-12 col-md-4">
+      <div class="row">
+        <label>Administrador</label>
+      </div>
+      <div class="row">
+        <div [ngClass]="{'input-group': !mobile}">
+          <div *ngIf="mobile; else InputMobileA" class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ID"
+              aria-label="Administrador ID"
+              aria-describedby="administrador-id"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">ID Administrador</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">ID 1</a></li>
+              <li><a class="dropdown-item">ID 2</a></li>
+              <li><a class="dropdown-item">ID 3</a></li>
+            </ul>
+          </div>
+          <ng-template #InputMobileA>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ID"
+              aria-label="Administrador ID"
+              aria-describedby="administrador-id"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="visually-hidden">ID Administrador</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item">ID 1</a></li>
+              <li><a class="dropdown-item">ID 2</a></li>
+              <li><a class="dropdown-item">ID 3</a></li>
+            </ul>
+          </ng-template>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            aria-label="Nombre del administrador"
+            aria-describedby="nombre-administrador"
+          />
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Consumer -->
-  <div class="my-3">
-    <label>Consumidor:</label>
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="ID"
-        aria-label="Consumidor ID"
-        aria-describedby="consumidor-id"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Nombre"
-        aria-label="Nombre del consumidor"
-        aria-describedby="nombre-consumidor"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Apellido"
-        aria-label="Apellido del consumidor"
-        aria-describedby="apellido-consumidor"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Email"
-        aria-label="Email del consumidor"
-        aria-describedby="email-consumidor"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Teléfono"
-        aria-label="Telefono del consumidor"
-        aria-describedby="telefono-consumidor"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Fecha de nacimiento"
-        aria-label="Fecha de nacimiento del consumidor"
-        aria-describedby="fecha-nacimiento-consumidor"
-      />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Sexo"
-        aria-label="Sexo del consumidor"
-        aria-describedby="sexo-consumidor"
-      />
+  <div class="row my-3">
+    <div class="col">
+      <div class="row">
+        <label>Consumidor:</label>
+      </div>
+      <div class="row">
+        <div [ngClass]="{'input-group': !mobile}">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="ID"
+            aria-label="Consumidor ID"
+            aria-describedby="consumidor-id"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            aria-label="Nombre del consumidor"
+            aria-describedby="nombre-consumidor"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Apellido"
+            aria-label="Apellido del consumidor"
+            aria-describedby="apellido-consumidor"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Email"
+            aria-label="Email del consumidor"
+            aria-describedby="email-consumidor"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Teléfono"
+            aria-label="Telefono del consumidor"
+            aria-describedby="telefono-consumidor"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Fecha de nacimiento"
+            aria-label="Fecha de nacimiento del consumidor"
+            aria-describedby="fecha-nacimiento-consumidor"
+          />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Sexo"
+            aria-label="Sexo del consumidor"
+            aria-describedby="sexo-consumidor"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>

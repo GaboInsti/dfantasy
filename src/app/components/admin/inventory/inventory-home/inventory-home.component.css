@@ -1,9 +1,9 @@
-.inventario-mobiliario-container {
+.inventario-container {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.inventario-table-container {
+.table-container {
     overflow: auto;
 }
