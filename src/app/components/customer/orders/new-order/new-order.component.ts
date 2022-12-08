@@ -9,6 +9,7 @@ import { Order, MobiliarioOrder } from '../../../../shared/models/order.interfac
 
 import { v4 as uuidv4 } from 'uuid';
 import { OrdersService } from '../../../../shared/services/orders.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-order',
@@ -25,6 +26,31 @@ export class NewOrderComponent implements OnInit, OnDestroy {
   mobiliarioSub: Subscription;
 
   categoriesSelected: string[] = [];
+
+  colonias: string[] = [
+    '10 de Abril',
+    'Adolfo Lopez Mateos',
+    'Altos Bacurimi',
+    'Ampliación El Barrio',
+    'Balcones Del Valle',
+    'Bosques Del Rio',
+    'Camino Real',
+    'Centro Sinaloa',
+    'Chapultepec',
+    'Condesa',
+    'Emiliano Zapata',
+    'Estrella Nueva Galicia',
+    'Fincas del Humaya',
+    'Gustavo Díaz Ordaz',
+    'Hacienda Los Huertos',
+    'Industrial Bravo',
+    'Jardines de La Sierra',
+    'La Campiña',
+    'La Primavera',
+    'Las Palmas',
+    'Lomas Del Humaya',
+    'Melchor Ocampo',
+  ];
 
   orderForm: FormGroup;
 
@@ -120,7 +146,22 @@ export class NewOrderComponent implements OnInit, OnDestroy {
           id: uuidv4()
         }
       };
-      this.ordersService.newOrder(newOrder).subscribe();
+      this.ordersService.newOrder(newOrder).subscribe({
+        next: () => {
+          Swal.fire({
+            title: '¡Su renta ha sido creada!',
+            icon: 'info',
+            html:
+              '<p>¡Cuarde su ID y el de su pedido!</p>' +
+              `<p>Cliente ID: ${newOrder.customer.id}</p>` +
+              `<p>Renta ID: ${newOrder.id}</p>`,
+            showCloseButton: true,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: 'Listo'
+          });
+        }
+      });
     }
   }
 
@@ -164,6 +205,10 @@ export class NewOrderComponent implements OnInit, OnDestroy {
     mobiliarioControls.forEach((control, index) => {
       control.get('priceMobiliario').setValue(this.mobiliarios[indexArray[index]].price);
     });
+  }
+
+  onSetColonia(colonia: string) {
+    this.orderForm.get(['address', 'colonia']).setValue(colonia);
   }
 
   ngOnDestroy(): void {

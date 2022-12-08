@@ -12,6 +12,11 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
+// Angular Material
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 // Login component
 import { LoginComponent } from './components/login/login.component';
 
@@ -30,6 +35,8 @@ import { CustomerSearchComponent } from './components/customer/orders/customer-s
 import { FilterMobiliarioPipe } from './components/admin/inventory/inventory-home/pipes/filter-mobiliario.pipe';
 import { NewOrderComponent } from './components/customer/orders/new-order/new-order.component';
 import { FilterCategoryPipe } from './components/customer/orders/new-order/pipes/filter-category.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -60,7 +67,12 @@ import { FilterCategoryPipe } from './components/customer/orders/new-order/pipes
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    LayoutModule
+    LayoutModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -122,30 +122,46 @@
         <div class="row">
           <label>Fecha:</label>
         </div>
-        <div class="row">
-          <div [ngClass]="{ 'input-group': !mobile }" formGroupName="date">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Fecha de inicio"
-              aria-label="Fecha de inicio"
-              aria-describedby="fecha-inicio"
-              formControlName="startDate"
-            />
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Fecha de recolección"
-              aria-label="Fecha de recoleccion"
-              aria-describedby="fecha-recoleccion"
-              formControlName="endDate"
-            />
+        <div class="row" formGroupName="date">
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha de inicio</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerStart"
+                class="form-control"
+                formControlName="startDate"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerStart"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-md-6">
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha de inicio</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerEnd"
+                class="form-control"
+                formControlName="endDate"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="pickerEnd"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Direction -->
+    <!-- Address -->
     <div class="row my-3">
       <div class="col" formGroupName="address">
         <div class="row">
@@ -170,9 +186,11 @@
                 <span class="visually-hidden">Colonia</span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item">Colonia 1</a></li>
-                <li><a class="dropdown-item">Colonia 2</a></li>
-                <li><a class="dropdown-item">Colonia 3</a></li>
+                <li *ngFor="let colonia of colonias">
+                  <a class="dropdown-item" (click)="onSetColonia(colonia)">
+                    {{ colonia }}
+                  </a>
+                </li>
               </ul>
             </div>
             <ng-template #InputMobileC>
@@ -192,9 +210,11 @@
                 <span class="visually-hidden">Colonia</span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item">Colonia 1</a></li>
-                <li><a class="dropdown-item">Colonia 2</a></li>
-                <li><a class="dropdown-item">Colonia 3</a></li>
+                <li *ngFor="let colonia of colonias">
+                  <a class="dropdown-item" (click)="onSetColonia(colonia)">
+                    {{ colonia }}
+                  </a>
+                </li>
               </ul>
             </ng-template>
             <input
@@ -307,15 +327,9 @@
               formControlName="genre"
             >
               <option selected>Selecciona género</option>
-              <option value="Masculino">
-                Masculino
-              </option>
-              <option value="Femenino">
-                Femenino
-              </option>
-              <option value="No binario">
-                No binario
-              </option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="No binario">No binario</option>
             </select>
           </div>
         </div>
