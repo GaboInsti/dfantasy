@@ -26,6 +26,31 @@ export class NewOrderComponent implements OnInit, OnDestroy {
 
   categoriesSelected: string[] = [];
 
+  colonias: string[] = [
+    '10 de Abril',
+    'Adolfo Lopez Mateos',
+    'Altos Bacurimi',
+    'Ampliación El Barrio',
+    'Balcones Del Valle',
+    'Bosques Del Rio',
+    'Camino Real',
+    'Centro Sinaloa',
+    'Chapultepec',
+    'Condesa',
+    'Emiliano Zapata',
+    'Estrella Nueva Galicia',
+    'Fincas del Humaya',
+    'Gustavo Díaz Ordaz',
+    'Hacienda Los Huertos',
+    'Industrial Bravo',
+    'Jardines de La Sierra',
+    'La Campiña',
+    'La Primavera',
+    'Las Palmas',
+    'Lomas Del Humaya',
+    'Melchor Ocampo',
+  ];
+
   orderForm: FormGroup;
 
   constructor(
@@ -104,7 +129,7 @@ export class NewOrderComponent implements OnInit, OnDestroy {
   }
 
   onNewOrder() {
-    if (this.orderForm.valid) {
+    if (!this.orderForm.valid) {
       const { mobiliarios, eventDescription, date, address, customer  } = this.orderForm.value;
       const newOrder: Order = {
         id: uuidv4(),
@@ -164,6 +189,10 @@ export class NewOrderComponent implements OnInit, OnDestroy {
     mobiliarioControls.forEach((control, index) => {
       control.get('priceMobiliario').setValue(this.mobiliarios[indexArray[index]].price);
     });
+  }
+
+  onSetColonia(colonia: string) {
+    this.orderForm.get(['address', 'colonia']).setValue(colonia);
   }
 
   ngOnDestroy(): void {
