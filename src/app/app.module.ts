@@ -28,6 +28,7 @@ import { InventoryDetailsComponent } from './components/admin/inventory/inventor
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { CustomerSearchComponent } from './components/customer/orders/customer-search/customer-search.component';
 import { FilterMobiliarioPipe } from './components/admin/inventory/inventory-home/pipes/filter-mobiliario.pipe';
+import { NewOrderComponent } from './components/customer/orders/new-order/new-order.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FilterMobiliarioPipe } from './components/admin/inventory/inventory-hom
     InventoryDetailsComponent,
     CatalogComponent,
     CustomerSearchComponent,
-    FilterMobiliarioPipe
+    FilterMobiliarioPipe,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,

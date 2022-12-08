@@ -25,6 +25,7 @@ import { InventoryHomeComponent } from './components/admin/inventory/inventory-h
 import { InventoryDetailsComponent } from './components/admin/inventory/inventory-details/inventory-details.component';
 import { APP_ROUTES } from './routes';
 import { CustomerSearchComponent } from './components/customer/orders/customer-search/customer-search.component';
+import { NewOrderComponent } from './components/customer/orders/new-order/new-order.component';
 
 const {
   home,
@@ -79,7 +80,7 @@ const routes: Routes = [
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ],
   },
-  { path: `${customer}/${newOrder}`, component: OrderDetailsComponent },
+  { path: `${customer}/${newOrder}`, component: NewOrderComponent },
   { path: `${customer}/${search}`, component: CustomerSearchComponent },
   { path: `${customer}/${checkDetails}`, component: OrderDetailsComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

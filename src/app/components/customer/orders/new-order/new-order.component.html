@@ -1,0 +1,325 @@
+<div class="container order-container py-2">
+  <form [formGroup]="orderForm" (ngSubmit)="onNewOrder()">
+    <!-- Details -->
+    <div class="row my-3">
+      <div class="col">
+        <div class="row">
+          <label>Detalle pedido: Lista de mobiliarios</label>
+        </div>
+        <div class="row table-container" formArrayName="mobiliarios">
+          <table class="table" aria-labelledby="mobiliario">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let mobiliario of mobiliariosControls; let i = index"
+                [formGroupName]="i"
+              >
+                <td>
+                  <button
+                    class="btn"
+                    type="button"
+                    (click)="onRemoveMobiliario(i)"
+                  >
+                    -
+                  </button>
+                </td>
+                <td>
+                  <select
+                    class="form-select"
+                    aria-label="Mobiliario"
+                    formControlName="category"
+                  >
+                    <option selected>Selecciona categoría</option>
+                    <option
+                      *ngFor="let category of categories; let i = index"
+                      [value]="i"
+                    >
+                      {{ category.name }}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select
+                    class="form-select"
+                    aria-label="Mobiliario"
+                    formControlName="nameMobiliario"
+                  >
+                    <option selected>Selecciona el mobiliario</option>
+                    <option value="1">Mesas</option>
+                    <option value="2">Sillas</option>
+                    <option value="3">Manteles</option>
+                    <option value="4">Platos</option>
+                    <option value="5">Cubiertos</option>
+                    <option value="6">Copas</option>
+                    <option value="7">Brincolines</option>
+                    <option value="8">Coolers</option>
+                    <option value="9">Centros de mesa</option>
+                    <option value="10">Carpas</option>
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Precio unitario"
+                    aria-describedby="precio-unitario"
+                    formControlName="priceMobiliario"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Cantidad"
+                    aria-describedby="cantidad-mobiliario"
+                    formControlName="quantityMobiliario"
+                  />
+                </td>
+                <td>
+                  <button
+                    *ngIf="i === mobiliariosControls.length - 1"
+                    class="btn"
+                    type="button"
+                    (click)="onAddMobiliario()"
+                  >
+                    +
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Descripción del evento"
+              id="descripcionMobiliarioTextArea"
+              formControlName="eventDescription"
+            ></textarea>
+            <label for="descripcionMobiliarioTextArea"
+              >Descripción del evento</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="row my-3">
+      <div class="col">
+        <div class="row">
+          <label>Fecha:</label>
+        </div>
+        <div class="row">
+          <div [ngClass]="{ 'input-group': !mobile }" formGroupName="date">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Fecha de inicio"
+              aria-label="Fecha de inicio"
+              aria-describedby="fecha-inicio"
+              formControlName="startDate"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Fecha de recolección"
+              aria-label="Fecha de recoleccion"
+              aria-describedby="fecha-recoleccion"
+              formControlName="endDate"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direction -->
+    <div class="row my-3">
+      <div class="col" formGroupName="address">
+        <div class="row">
+          <label>Dirección:</label>
+        </div>
+        <div class="row">
+          <div [ngClass]="{ 'input-group': !mobile }">
+            <div *ngIf="mobile; else InputMobileC" class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Colonia"
+                aria-label="Colonia"
+                formControlName="colonia"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="visually-hidden">Colonia</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item">Colonia 1</a></li>
+                <li><a class="dropdown-item">Colonia 2</a></li>
+                <li><a class="dropdown-item">Colonia 3</a></li>
+              </ul>
+            </div>
+            <ng-template #InputMobileC>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Colonia"
+                aria-label="Colonia"
+                formControlName="colonia"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="visually-hidden">Colonia</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item">Colonia 1</a></li>
+                <li><a class="dropdown-item">Colonia 2</a></li>
+                <li><a class="dropdown-item">Colonia 3</a></li>
+              </ul>
+            </ng-template>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Calle 1"
+              aria-label="Calle 1"
+              aria-describedby="calle-1"
+              formControlName="street1"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Calle 2"
+              aria-label="Calle 2"
+              aria-describedby="calle-2"
+              formControlName="street2"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="No. Interior"
+              aria-label="No. Interior"
+              aria-describedby="no-interior"
+              formControlName="noInterior"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="No. Exterior"
+              aria-label="No. Exterior"
+              aria-describedby="no-exterior"
+              formControlName="noExterior"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Código Postal"
+              aria-label="Codigo Postal"
+              aria-describedby="codigo-postal"
+              formControlName="codigoPostal"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Descripción"
+              id="descripcionTextArea"
+              formControlName="description"
+            ></textarea>
+            <label for="descripcionTextArea">Descripción</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consumer -->
+    <div class="row my-3">
+      <div class="col">
+        <div class="row">
+          <label>Consumidor:</label>
+        </div>
+        <div class="row">
+          <div [ngClass]="{ 'input-group': !mobile }" formGroupName="customer">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre"
+              aria-label="Nombre del consumidor"
+              aria-describedby="nombre-consumidor"
+              formControlName="customerName"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Apellido"
+              aria-label="Apellido del consumidor"
+              aria-describedby="apellido-consumidor"
+              formControlName="customerLastName"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Email"
+              aria-label="Email del consumidor"
+              aria-describedby="email-consumidor"
+              formControlName="customerEmail"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Teléfono"
+              aria-label="Telefono del consumidor"
+              aria-describedby="telefono-consumidor"
+              formControlName="customerPhoneNumber"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Fecha de nacimiento"
+              aria-label="Fecha de nacimiento del consumidor"
+              aria-describedby="fecha-nacimiento-consumidor"
+              formControlName="customerBirthday"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Sexo"
+              aria-label="Sexo del consumidor"
+              aria-describedby="sexo-consumidor"
+              formControlName="genre"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row my-5 justify-content-center">
+      <div class="col-auto">
+        <button class="btn" type="submit">Solicitar renta</button>
+      </div>
+      <div class="col-auto">
+        <button class="btn">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>

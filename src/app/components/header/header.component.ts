@@ -4,7 +4,7 @@ import { APP_ROUTES } from '../../routes';
 import { LoginService } from '../../shared/services/login.service';
 import { Router } from '@angular/router';
 
-const { home, catalog, customer, newOrder, search, login } = APP_ROUTES;
+const { home, catalog, customer, newOrder, search, orders, login } = APP_ROUTES;
 
 @Component({
   selector: 'app-header',
@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   catalogRoute = catalog;
   newCustomerOrder = `${customer}/${newOrder}`;
   searchCustomerOrderDetails = `${customer}/${search}`;
+  adminRoute = orders;
   loginRoute = login;
 
   logged: boolean = false;
