@@ -30,4 +30,13 @@ export class OrdersService {
       tap(orders => this.ordersSubject.next(orders))
     )
   }
+
+  updateOrder(newOrder: Order) {
+    let orders = this.ordersSubject.getValue().slice();
+    const index = orders.findIndex(order => order.id === newOrder.id);
+    orders[index] = newOrder;
+    return this.http.put<Order[]>(`${firebaseURL}/orders.json`, orders).pipe(
+      tap(orders => this.ordersSubject.next(orders))
+    )
+  }
 }

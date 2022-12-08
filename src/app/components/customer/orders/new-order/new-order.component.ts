@@ -9,6 +9,7 @@ import { Order, MobiliarioOrder } from '../../../../shared/models/order.interfac
 
 import { v4 as uuidv4 } from 'uuid';
 import { OrdersService } from '../../../../shared/services/orders.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-order',
@@ -129,7 +130,7 @@ export class NewOrderComponent implements OnInit, OnDestroy {
   }
 
   onNewOrder() {
-    if (!this.orderForm.valid) {
+    if (this.orderForm.valid) {
       const { mobiliarios, eventDescription, date, address, customer  } = this.orderForm.value;
       const newOrder: Order = {
         id: uuidv4(),
@@ -145,7 +146,22 @@ export class NewOrderComponent implements OnInit, OnDestroy {
           id: uuidv4()
         }
       };
-      this.ordersService.newOrder(newOrder).subscribe();
+      this.ordersService.newOrder(newOrder).subscribe({
+        next: () => {
+          Swal.fire({
+            title: '¡Su renta ha sido creada!',
+            icon: 'info',
+            html:
+              '<p>¡Cuarde su ID y el de su pedido!</p>' +
+              `<p>Cliente ID: ${newOrder.customer.id}</p>` +
+              `<p>Renta ID: ${newOrder.id}</p>`,
+            showCloseButton: true,
+            showCancelButton: false,
+            focusConfirm: false,
+            confirmButtonText: 'Listo'
+          });
+        }
+      });
     }
   }
 

@@ -1,4 +1,4 @@
-<div class="container pedidos-container py-2">
+<div *ngIf="orders" class="container pedidos-container py-2">
   <!-- Consultar pedidos header -->
   <div class="row">
     <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
@@ -46,14 +46,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>x</td>
-          <td>xx/xx/xx</td>
-          <td>xx/xx/xx</td>
-          <td>xxxxx xxxx</td>
-          <td>xxxxx xxxxxxxxxx xxxx xxxx</td>
-          <td>xxxxx xxxx</td>
-          <td>xxxxx</td>
+        <tr *ngFor="let order of orders; let i = index" class="pointer" (click)="onCheckOrderDetails(i)">
+          <td class="text-overflow">{{ order.id }}</td>
+          <td class="text-overflow">{{ order.date.startDate }}</td>
+          <td class="text-overflow">{{ order.date.endDate }}</td>
+          <td class="text-overflow">{{ order.customer.customerName }}</td>
+          <td class="text-overflow">{{ order.address.colonia }}, {{ order.address.street1 }}, {{ order.address.street2 }}</td>
+          <td class="text-overflow">{{ order.transportista.name === '' ? 'Sin asignar' : order.transportista.name }}</td>
+          <td class="text-overflow">{{ order.date.status }}</td>
         </tr>
       </tbody>
     </table>
