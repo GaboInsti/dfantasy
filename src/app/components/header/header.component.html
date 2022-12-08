@@ -16,7 +16,7 @@
           <li *ngIf="!logged" class="nav-item"><a class="nav-link" [routerLink]="newCustomerOrder">Realizar Renta</a></li>
           <li *ngIf="!logged" class="nav-item"><a class="nav-link" [routerLink]="searchCustomerOrderDetails">Consultar pedido</a></li>
           <li *ngIf="logged" class="nav-item"><a class="nav-link" [routerLink]="adminRoute">Admin</a></li>
-          <li class="nav-item "><button type="button" class="btn text-light" (click)="onLoginLogout()">{{ logged ? 'Logout' : 'Login' }}</button></li>
+          <li class="nav-item"><button type="button" class="btn text-light" (click)="onLoginLogout()">{{ logged ? 'Logout' : 'Login' }}</button></li>
       </ul>
   </div>
     </nav>
